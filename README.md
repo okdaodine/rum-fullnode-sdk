@@ -9,7 +9,7 @@ $ npm install rum-fullnode-sdk
 ## Usage
 
 ```javascript
-const RumFullNodeClient = require('rum-fullnode-sdk');
+const { RumFullNodeClient } = require('rum-fullnode-sdk');
 
 const client = RumFullNodeClient({
   baseURL: 'http://127.0.0.1:8000',
