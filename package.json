@@ -1,8 +1,8 @@
 {
-  "name": "rum-sdk-nodejs",
-  "version": "1.1.1",
+  "name": "rum-fullnode-sdk",
+  "version": "1.0.0",
   "license": "MIT",
-  "description": "rum sdk for nodejs",
+  "description": "sdk for rum fullnode",
   "author": "rum",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
