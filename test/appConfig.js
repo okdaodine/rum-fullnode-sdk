@@ -31,7 +31,7 @@ describe('AppConfig', () => {
     assert.hasAllKeys(res, ['group_id', 'signature', 'trx_id']);
   });
 
-  it('getKeyList', async () => {
+  it('get key list', async () => {
     let res = [];
     while (res.length === 0) {
       res = await client.AppConfig.getKeyList(groupId);
@@ -41,7 +41,7 @@ describe('AppConfig', () => {
     assert.hasAllKeys(key, ['Name', 'Type']);
   });
 
-  it('getValueByKey', async () => {
+  it('get value by key', async () => {
     const res = await client.AppConfig.getValueByKey(groupId, key);
     assert.hasAllKeys(res, [
       'Name',

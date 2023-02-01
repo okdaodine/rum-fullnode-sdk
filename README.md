@@ -62,8 +62,8 @@ console.log(contents);
 ```
 AppConfig
   ✔ change
-  ✔ getKeyList
-  ✔ getValueByKey
+  ✔ get key list
+  ✔ get value by key
 
 Auth
   ✔ get auth rule
