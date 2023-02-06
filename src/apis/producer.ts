@@ -14,7 +14,7 @@ export default (axios: AxiosInstance) => ({
   },
 
   listApprovedProducers(groupId: string) {
-    return axios.get(`/api/v1/group/${groupId}/producers`) as Promise<IApprovedProducer>;
+    return axios.get(`/api/v1/group/${groupId}/producers`) as Promise<Array<IApprovedProducer>>;
   },
 });
 
