@@ -1,12 +1,12 @@
 {
   "name": "rum-fullnode-sdk",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "MIT",
   "description": "sdk for rum fullnode",
   "author": "rum",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "module": "dist/rum-sdk-nodejs.esm.js",
+  "module": "dist/rum-fullnode-sdk.esm.js",
   "files": [
     "dist",
     "src"
