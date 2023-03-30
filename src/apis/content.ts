@@ -1,17 +1,29 @@
 import { AxiosInstance } from 'axios';
 import qs from 'query-string';
+import * as Base64 from 'js-base64';
 
 export default (axios: AxiosInstance) => ({
   create(groupId: string, data: Object) {
     return axios.post(`/api/v1/group/${groupId}/content`, { data }) as Promise<ICreateContentRes>;
   },
 
-  list(groupId: string, p: IListContentParams) {
-    return axios.get(`/app/api/v1/group/${groupId}/content?${qs.stringify(p)}`, {
+  async list(groupId: string, p: IListContentParams) {
+    const contents: null | Array<IContentItem> = await (axios.get(`/app/api/v1/group/${groupId}/content?${qs.stringify(p)}`, {
       headers: {
         'Accept-Content': 'gzip',
       },
-    }) as Promise<null | Array<IContentItem>>
+    }));
+    if (!contents) {
+      return contents;
+    }
+    return contents.map(content => {
+      try {
+        content.Data = JSON.parse(Base64.decode(content.Data));
+      } catch (err) {
+        console.log(err); 
+      }
+      return content;
+    });
   }
 });
 
@@ -28,9 +40,11 @@ export interface IListContentParams {
 }
 
 export interface IContentItem {
-  TrxId: string
-  Publisher: string
-  TypeUrl: string
+  Data: string
+  GroupId: string
+  SenderPubkey: string
+  SenderSign: string
   TimeStamp: number
-  Content: string
+  TrxId: string
+  Version: string
 }

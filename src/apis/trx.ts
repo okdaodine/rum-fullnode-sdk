@@ -13,6 +13,5 @@ export interface ITrx {
   Data: string
   TimeStamp: number
   Version: string
-  Expired: number
   SenderSign: string
 }

@@ -22,20 +22,16 @@ describe('Trx', () => {
   });
 
   it('get trx', async () => {
+    await sleep(5000);
     const trx = await client.Trx.get(groupId, trxId);
     assert.hasAllKeys(trx, [
       'TrxId',
-      'Type',
       'GroupId',
+      'SenderPubkey',
       'Data',
       'TimeStamp',
       'Version',
-      'Expired',
-      'ResendCount',
-      'Nonce',
-      'SenderPubkey',
       'SenderSign',
-      'StorageType',
     ]);
   });
 

@@ -5,6 +5,10 @@ export default (axios: AxiosInstance) => ({
     return axios.post('/api/v1/group', p) as Promise<ICreateGroupsRes>;
   },
 
+  get(groupId: string) {
+    return axios.get(`/api/v1/group/${groupId}`) as Promise<IGroup>;
+  },
+
   leave(groupId: string) {
     return axios.post('/api/v1/group/leave', { group_id: groupId }) as Promise<ILeaveGroupRes>;
   },
@@ -38,20 +42,27 @@ export interface IGetSeedRes {
 }
 
 export interface IGroup {
+  app_key: string
+  cipher_key: string
+  consensus_type: string
+  currt_epoch: number
+  currt_top_block: number
+  encryption_type: string
   group_id: string
   group_name: string
+  last_updated: number,
   owner_pubkey: string
-  user_pubkey: string
+  rex_Syncer_result: {
+    blockProvided: number
+    fromBlock: number
+    lastSyncTaskTimestamp: number
+    nextSyncTaskTimeStamp: number
+    provider: string
+    syncResult: string
+  },
+  rex_syncer_status: string
   user_eth_addr: string
-  consensus_type: string
-  encryption_type: string
-  cipher_key: string
-  app_key: string
-  last_updated: number
-  highest_height: number
-  highest_block_id: string
-  group_status: string
-  snapshot_info: any
+  user_pubkey: string
 }
 
 export interface ICreateGroupsRes {

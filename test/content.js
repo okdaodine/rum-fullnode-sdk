@@ -40,8 +40,8 @@ describe('Content', () => {
     }
     const content = contents[0];
     assert.equal(content.TrxId, trxId);
-    assert.hasAllKeys(content, ['TrxId', 'Publisher', 'Content', 'TimeStamp']);
-    assert.deepEqual(content.Content, data);
+    assert.hasAllKeys(content, ['Data', 'GroupId', 'SenderPubkey', 'SenderSign', 'TimeStamp', 'TrxId', 'Version']);
+    assert.deepEqual(content.Data, data);
   });
 
   after(async () => {

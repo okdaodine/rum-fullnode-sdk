@@ -20,6 +20,26 @@ describe('CURD Group', () => {
     seed = res.seed;
   });
 
+  it('get group', async () => {
+    const group = await client.Group.get(groupId);
+    assert.hasAllKeys(group, [
+      'app_key',
+      'cipher_key',
+      'consensus_type',
+      'currt_epoch',
+      'currt_top_block',
+      'encryption_type',
+      'group_id',
+      'group_name',
+      'last_updated',
+      'owner_pubkey',
+      'rex_Syncer_result',
+      'rex_syncer_status',
+      'user_eth_addr',
+      'user_pubkey',
+    ]);
+  });
+
   it('get seed', async () => {
     const { seed } = await client.Group.getSeed(groupId);
     assert.exists(seed)
@@ -29,20 +49,20 @@ describe('CURD Group', () => {
     const { groups } = await client.Group.list();
     const group = groups.find(group => group.group_id === groupId);
     assert.hasAllKeys(group, [
+      'app_key',
+      'cipher_key',
+      'consensus_type',
+      'currt_epoch',
+      'currt_top_block',
+      'encryption_type',
       'group_id',
       'group_name',
-      'owner_pubkey',
-      'user_pubkey',
-      'user_eth_addr',
-      'consensus_type',
-      'encryption_type',
-      'cipher_key',
-      'app_key',
       'last_updated',
-      'highest_height',
-      'highest_block_id',
-      'group_status',
-      'snapshot_info',
+      'owner_pubkey',
+      'rex_Syncer_result',
+      'rex_syncer_status',
+      'user_eth_addr',
+      'user_pubkey',
     ]);
   });
 
