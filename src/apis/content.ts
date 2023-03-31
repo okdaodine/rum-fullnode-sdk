@@ -44,7 +44,7 @@ export interface IContentItem {
   GroupId: string
   SenderPubkey: string
   SenderSign: string
-  TimeStamp: number
+  TimeStamp: string
   TrxId: string
   Version: string
 }
