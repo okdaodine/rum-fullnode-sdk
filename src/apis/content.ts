@@ -33,10 +33,10 @@ export interface ICreateContentRes {
 
 export interface IListContentParams {
   num: number
-  starttrx?: string
-  nonce?: number
+  start_trx?: string
   reverse?: boolean
-  includestarttrx?: boolean
+  include_start_trx?: boolean
+  senders?: Array<string>
 }
 
 export interface IContentItem {
