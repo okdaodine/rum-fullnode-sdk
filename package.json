@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "tsdx watch",
-    "build": "rm -rf dist && tsdx build",
+    "build": "tsdx build",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
