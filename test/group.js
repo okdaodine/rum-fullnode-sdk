@@ -68,7 +68,12 @@ describe('CURD Group', () => {
 
   it('leave group', async () => {
     const res = await client.Group.leave(groupId);
-    assert.exists(res.group_id)
+    assert.exists(res.group_id);
+  });
+
+  it('clear group', async () => {
+    const res = await client.Group.clear(groupId);
+    assert.exists(res.group_id);
   });
 });
 
@@ -105,6 +110,8 @@ describe('Join and leave group', () => {
 
   it('leave group', async () => {
     await client.Group.leave(groupId);
+    await client.Group.clear(groupId);
     await client2.Group.leave(groupId);
+    await client2.Group.clear(groupId);
   });
 });

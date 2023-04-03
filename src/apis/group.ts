@@ -13,6 +13,10 @@ export default (axios: AxiosInstance) => ({
     return axios.post('/api/v1/group/leave', { group_id: groupId }) as Promise<ILeaveGroupRes>;
   },
 
+  clear(groupId: string) {
+    return axios.post('/api/v1/group/clear', { group_id: groupId }) as Promise<IClearGroupRes>;
+  },
+
   list() {
     return axios.get('/api/v1/groups') as Promise<IListGroupsRes>;
   },
@@ -84,6 +88,10 @@ export interface IJoinGroupRes {
 }
 
 export interface ILeaveGroupRes {
+  group_id: string
+}
+
+export interface IClearGroupRes {
   group_id: string
 }
 

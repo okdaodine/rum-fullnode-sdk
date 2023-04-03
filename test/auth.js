@@ -73,5 +73,6 @@ describe('Auth', () => {
 
   after(async () => {
     await client.Group.leave(groupId);
+    await client.Group.clear(groupId);
   });
 });
