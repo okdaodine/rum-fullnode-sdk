@@ -1,4 +1,5 @@
 import { AxiosInstance } from 'axios';
+import qs from 'query-string';
 
 export default (axios: AxiosInstance) => ({
   create(p: ICreateParams) {
@@ -25,8 +26,8 @@ export default (axios: AxiosInstance) => ({
     return axios.post('/api/v2/group/join', { seed }) as Promise<IJoinGroupRes>;
   },
 
-  getSeed(groupId: string) {
-    return axios.get(`/api/v1/group/${groupId}/seed`) as Promise<IGetSeedRes>;
+  getSeed(groupId: string, options?: { include_chain_url: string }) {
+    return axios.get(`/api/v1/group/${groupId}/seed?${qs.stringify(options || {})}`) as Promise<IGetSeedRes>;
   },
 });
 
@@ -35,6 +36,7 @@ export interface ICreateParams {
   consensus_type: string
   encryption_type: string
   app_key: string
+  include_chain_url?: string
 }
 
 export interface IListGroupsRes {
